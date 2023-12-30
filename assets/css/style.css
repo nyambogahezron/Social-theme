@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600$display=swap');
 
 :root {
-  --color-white: hsl(252, 30%, 100%);
-  --color-light: hsl(252, 30%, 95%);
-  --color-gray: hsl(252, 15%, 65%);
-  --color-primary: hsl(252, 75%, 60%);
+  --primary-color-hue:252;
+  --dark-color-lightness: 17%;
+  --light-color-lightness: 95%;
+  --white-color-lightness: 100%;
+
+  --color-white: hsl(252, 30%, var(--white-color-lightness));
+  --color-light: hsl(252, 30%, var(--light-color-lightness));
+  --color-gray: hsl(var(--primary-color-hue), 15%, 65%);
+  --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
   --color-secondary: hsl(252, 100%, 90%);
   --color-success: hsl(120, 95%, 65%);
   --color-danger: hsl(0, 95%, 65%);
-  --color-dark: hsl(252, 30%, 17%);
+  --color-dark: hsl(252, 30%, var(--dark-color-lightness));
   --color-black: hsl(252, 30%, 10%);
 
   --border-radius: 2rem;
@@ -266,7 +271,26 @@ main .container .left .profile {
   width: 100%;
   position: relative;
   overflow: hidden;
-  background: url('../images/feed-image-1.png') no-repeat center center/cover;
+}
+.middle .stories .story:nth-child(1){
+  background: url('../images/photo5.png') no-repeat center center/cover;
+
+}
+.middle .stories .story:nth-child(2){
+  background: url('../images/status-2.png') no-repeat center center/cover;
+
+}
+.middle .stories .story:nth-child(3){
+  background: url('../images/status-3.png') no-repeat center center/cover;
+
+}
+.middle .stories .story:nth-child(4){
+  background: url('../images/status-4.png') no-repeat center center/cover;
+
+}
+.middle .stories .story:nth-child(5){
+  background: url('../images/status-5.png') no-repeat center center/cover;
+
 }
 .middle .stories .story::before {
   content: '';
@@ -477,6 +501,7 @@ main .container .left .profile {
   padding: 3rem;
   border-radius: var(--card-border-radius);
   width: 50%;
+  box-shadow: 0 0 1rem var(--color-primary);
 }
 
 /* FONT SIZE  */
@@ -508,7 +533,7 @@ main .container .left .profile {
   border-radius: 50%;
   cursor: pointer;
 }
-.customize-theme .choose-size span .active {
+.customize-theme .choose-size span.active {
   background: var(--color-primary);
 }
 
@@ -541,7 +566,7 @@ main .container .left .profile {
   background: hsl(205, 75%, 60%);
 }
 
-.customize-theme .choose-color span .active {
+.customize-theme .choose-color span.active {
   border: 5px solid #fff;
 }
 
@@ -589,7 +614,12 @@ main .container .left .profile {
 }
 
 /* RESPONSIVE DESIGN */
-
+@media screen and (max-width: 480px) {
+ .customize-theme .background .choose-bg{
+    display: flex;
+    flex-direction: column;
+  }
+}
 @media screen and (max-width: 992px) {
   nav .search-bar {
     display: none;
@@ -625,6 +655,11 @@ main .container .left .profile {
   main .container .middle {
     grid-column: 1/3;
   }
+   .customize-theme .card{
+    width: 80vw;
+
+  }
+ 
 }
 
 @media screen and (max-width: 1200px) {
@@ -643,5 +678,8 @@ main .container .left .profile {
   .sidebar h3,
   .left .btn {
     display: none;
+  }
+  .customize-theme .card{
+    width: 90vw;
   }
 }
